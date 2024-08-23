@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영역관련태그</title>
+
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        span{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            /*인라인 요소에는 대부분 가로, 세로길이 지정 불가*/
+        }
+    </style>
+</head>
+<body>
+    <!--
+        블럭요소 : 한 줄 단위로 영역을 차지함
+                  줄바꿈이 적용되어 이미 존재하는 태그의 다음줄에 다음 영역이 잡힘
+                  (p, pre, "div", h, ...)
+        인라인요소 : content(내용) 영역에 해당하는 부분만 영역을 차지하는 요소
+                    줄바꿈이 적용되지 않아 다음 영역의 바로 옆으로 다음 영역이 잡힘
+                    (b, mark, s, img, "span", ...)
+    -->
+    
+    <h1>영역관련태그</h1>
+    <h2>div태그와 span태그의 차이점 1 : 줄바꿈적용</h2>
+
+
+    <h3>div태그</h3>
+    <p>div태그는 블럭요소로 한 줄 단위로 영역을 차지(이미 존재하는 태그 다음줄에 영역이 잡힘)</p>
+
+    <div style="background-color: red;">첫번째 영역</div>
+    <div style="background-color: orange;">두번째 영역</div>
+    <div style="background-color: yellow;">세번째 영역</div>
+
+
+    <h3>span태그</h3>
+    <p>span태그는 인라인 요소로 content 영역만 차지(줄바꿈이 발생되지않고 옆으로 영역지 잡힘)</p>
+
+    <span style="background-color: red;">첫번째 영역</span>
+    <span style="background-color: orange;">두번째 영역</span>
+    <span style="background-color: yellow;">세번째 영역</span>
+
+    <h2>div태그와 span태그의 차이점 2 : 영역지정방식</h2>
+    
+    <h3>div태그 : 사각형 박스로 영역을 지정함</h3>
+    <div style="height: auto;">딱 한 경기뿐이었으나 현지 여론은 좋지 못하다. 영국 매체 HITC는 "스코틀랜드 국가대표를 지냈던 크레이그 벌리가 제임스 매디슨과 손흥민의 플레이를 비판했다"고 전했다. HITC에 따르면 벌리는 "토트넘은 레스터시티를 너무 만만하게 봤다. 패스와 슛 마무리를 보며 그렇게 느꼈다"며 "손흥민과 매디슨을 포함한 토트넘 공격진이 그렇게 보였다. 그들은 이 경기를 절대 질리 없다고 생각한 것처럼 느껴졌다"고 비평했다.
+
+        벌리는 또 "이런 태도는 마치 '우리가 경기를 지배하고 있으니 곧 두 번째 골도 터지겠지'라는 오만함에서 비롯됐다. 정말 당황스럽다. 그런 건 토트넘보다 더 강한 팀들이나 하는 행동"이라고 했다.
+    </div>
+
+        
+    <h3>span태그 : 문장 단위로 영역을 지정함</h3>
+    <span>딱 한 경기뿐이었으나 현지 여론은 좋지 못하다. 영국 매체 HITC는 "스코틀랜드 국가대표를 지냈던 크레이그 벌리가 제임스 매디슨과 손흥민의 플레이를 비판했다"고 전했다. HITC에 따르면 벌리는 "토트넘은 레스터시티를 너무 만만하게 봤다. 패스와 슛 마무리를 보며 그렇게 느꼈다"며 "손흥민과 매디슨을 포함한 토트넘 공격진이 그렇게 보였다. 그들은 이 경기를 절대 질리 없다고 생각한 것처럼 느껴졌다"고 비평했다.
+
+        벌리는 또 "이런 태도는 마치 '우리가 경기를 지배하고 있으니 곧 두 번째 골도 터지겠지'라는 오만함에서 비롯됐다. 정말 당황스럽다. 그런 건 토트넘보다 더 강한 팀들이나 하는 행동"이라고 했다.
+    </span>
+
+    <hr>
+
+    <h1>iframe</h1>
+    <p>웹 문서 안에 다른 웹페이지를 추가하는 태그(인라인 요소)</p>
+
+    <iframe src="./04_이미지및멀티미디어관련태그.html" width="600" height="800"></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Gqw3XrHlnsk?si=0x78rCk6Oq4uxbFN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</body>
+</html>
