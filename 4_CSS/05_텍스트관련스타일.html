@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>텍스트관련스타일</title>
+
+    <style>
+        #c{
+            color: red;
+            color: #349417b9;
+            color: rgb(16, 204, 94);
+            color: rgba(40, 184, 76, 0.664);
+        }
+
+        #td1{text-decoration: underline;}
+        #td2{text-decoration: line-through;}
+        #td3{text-decoration: overline;}
+    </style>
+</head>
+<body>
+    <h1>텍스트 관련 스타일(text~)</h1>
+
+    <h2>color : 텍스트 색상 지정</h2>
+    <pre id="c">
+        선택자{
+            color: 색상명 | #16진수(코드값) | rgb(x,y,z) | rgba(x,y,z,a);
+        }
+    </pre>
+
+    <h2>text-decoration : 텍스트에 줄을 긋거나 줄을 없앨 때 사용</h2>
+    <pre>
+        선택자{
+            text-decoration : none | underline | overline | line-through;
+        }
+    </pre>
+
+    <ul>
+        <li id="td1">텍스트 영역 아래 줄 긋기</li>
+        <li id="td2">텍스트 영역 중간에 줄 긋기</li>
+        <li id="td3">텍스트 영역 위에 줄 긋기</li>
+    </ul>
+
+    <a href="https://www.nave.com" target="_blank" style="text-decoration: none;">네이버로</a>
+
+    <hr>
+
+    <h3>text-align : 텍스트 정렬할 때 사용</h3>
+    <pre>
+        선택자{
+            text-align: left(기본값) | right | center | justify
+        }
+    </pre>
+
+    <h4>왼쪽 정렬(기본값)</h4>
+    <p style="text-align: left;">차로이탈방지보조(LKA)와 차로유지보조(LFA)는 현대차에 기본적으로 탑재된 안전 기능으로, 운전자가 도로를 보다 안전하게 주행할 수 있도록 돕는다. 하지만 이러한 기능에 전적으로 의존해서는 안 되며, 특정 상황에서는 오히려 주의가 필요할 수 있다.</p>
+
+    <h4>양쪽 정렬</h4>
+    <p style="text-align: justify;">차로이탈방지보조(LKA)와 차로유지보조(LFA)는 현대차에 기본적으로 탑재된 안전 기능으로, 운전자가 도로를 보다 안전하게 주행할 수 있도록 돕는다. 하지만 이러한 기능에 전적으로 의존해서는 안 되며, 특정 상황에서는 오히려 주의가 필요할 수 있다.</p>
+
+    <h4>중앙 정렬</h4>
+    <p style="text-align: center;">차로이탈방지보조(LKA)와 차로유지보조(LFA)는 현대차에 기본적으로 탑재된 안전 기능으로, 운전자가 도로를 보다 안전하게 주행할 수 있도록 돕는다. 하지만 이러한 기능에 전적으로 의존해서는 안 되며, 특정 상황에서는 오히려 주의가 필요할 수 있다.</p>
+
+    <h4>오른쪽 정렬</h4>
+    <p style="text-align: right;">차로이탈방지보조(LKA)와 차로유지보조(LFA)는 현대차에 기본적으로 탑재된 안전 기능으로, 운전자가 도로를 보다 안전하게 주행할 수 있도록 돕는다. 하지만 이러한 기능에 전적으로 의존해서는 안 되며, 특정 상황에서는 오히려 주의가 필요할 수 있다.</p>
+
+    <hr>
+
+    <h3>line-height : 줄 간격 조절할 때 사용</h3>
+
+    <pre>
+        선택자{
+            line-height: normal | px | em | %
+        }
+    </pre>
+
+    <h4>px고정단위 간격</h4>
+    <p style="line-height: 30px;">차로이탈방지보조(LKA)와 차로유지보조(LFA)는 현대차에 기본적으로 탑재된 안전 기능으로, 운전자가 도로를 보다 안전하게 주행할 수 있도록 돕는다. 하지만 이러한 기능에 전적으로 의존해서는 안 되며, 특정 상황에서는 오히려 주의가 필요할 수 있다.</p>
+</body>
+</html>
