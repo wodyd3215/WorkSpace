@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice</title>
+    <style>
+        .area{
+            background: blue;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+
+        #active-test:active{
+            background-color: red;
+            color: blue;
+        }
+
+        #hover-test:hover{
+            background-color: green;
+            color: purple;
+        }
+    </style>
 </head>
 <body>
     아이디 : <input type="text"><br>
@@ -20,5 +38,10 @@
             <input type="submit" value="search">
         </fieldset>
     </form>
+
+    <div id="active-test" class="area">active</div>
+    <br><br>
+    <div id="hover-test" class="area">hover</div>
+    <br><br>
 </body>
 </html>
