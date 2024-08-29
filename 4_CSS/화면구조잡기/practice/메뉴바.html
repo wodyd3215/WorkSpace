@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>세부메뉴바</title>
+    <title>메뉴바</title>
     <style>
-        div{box-sizing: border-box;}
-        #navigator{
-            width: 1000px;
-            height: 40px;
+        div{
+            box-sizing: border-box;
         }
 
-        ul, li, ol{
+        ul, ol, li{
             list-style: none;
             padding: 0px;
             margin: 0px;
@@ -22,13 +20,18 @@
             color: black;
         }
 
-        #navi{
-            height: 100%;
+        #navigator{
+            width: 1000px;
+            height: 40px;
         }
 
-        #navi>li{
+        #navi{
+            width: 100%;
+        }
+
+        #navi > li{
             float: left;
-            border: 1px solid rgb(255, 255, 255);
+            border: 1px solid black;
             width: 100px;
             text-align: center;
             height: 100%;
@@ -41,10 +44,11 @@
             height: 100%;
             display: block;
             line-height: 36px;
+
         }
 
         #navi a:hover{
-            color: #868686;
+            color: rgb(46, 145, 7);
             scale: 0.8;
         }
 
@@ -63,6 +67,8 @@
         #navi>li>ul:hover{
             display: block;
         }
+
+
     </style>
 </head>
 <body>
@@ -73,19 +79,19 @@
             <li>
                 <a href="">Front-end</a>
                 <ul>
-                    <li><a href="">HTML</a></li>
-                    <li><a href="">CSS</a></li>
-                    <li><a href="">JavaScript</a></li>
-                    <li><a href="">JQuery</a></li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>JQuery</li>
                 </ul>
             </li>
             <li>
                 <a href="">Server</a>
                 <ul>
-                    <li><a href="">JDBC</a></li>
-                    <li><a href="">Servlet</a></li>
-                    <li><a href="">JSP</a></li>
-                    <li><a href="">AJAX</a></li>
+                    <li>JDBC</li>
+                    <li>Servlet</li>
+                    <li>JSP</li>
+                    <li>AJAX</li>
                 </ul>
             </li>
             <li><a href="">Framework</a></li>
