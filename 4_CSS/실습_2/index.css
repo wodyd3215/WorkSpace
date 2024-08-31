@@ -2,17 +2,18 @@ body{
     padding: 0;
     margin: 0;
     background: black;
+    width: 100vw;
+    height: 100vh;
 }
 
-div{
+div, form{
     box-sizing: border-box;
-    border: 1px solid white;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .wrap{
     width: 100%;
-    height: 800px;
+    height: 900px;
 }
 
 .wrap>div{
@@ -31,6 +32,15 @@ div{
 
 #hamburger{
     width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hamburger-btn{
+    width: 30px;
+    height: 30px;
     background: url(./십습문제_이미지2/icons/hamburger-menu.svg) no-repeat center/contain;
 }
 
@@ -46,25 +56,303 @@ div{
     width: calc(100% - 400px);
     display: flex;
     justify-content: center;
-    align-items: center;
-    display: flex;
 }
 
-#search-from{
+#search-form{
     width: 400px;
     height: 100%;
+    position: relative;
 }
 
-#search-from>input[type="text"]{
-    width: 80%;
+#search-form-text{
+    float:left;
+    width:90%;
+    height:calc(100% - 8px);
 }
 
-#search{
-    width: 50px;
-    height: 50px;
+#search-form-text>input{
+    margin-top: 2px;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px 0px 0px 30px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    border-color: rgb(46, 43, 43);
+}
+
+#search-form-button{
+    float:right;
+    width:10%;
+    height:100%;
+    
+}
+#search-form-button>button{
+    width:100%;
+    height:100%;
+    border-radius: 0px 30px 30px 0px;
     background-image: url(./십습문제_이미지2/icons/search.svg);
+    background-repeat: no-repeat;
+    background-size: 30px; /* 또는 cover */
+    background-position: center; /* 이미지 위치를 중앙으로 설정 */
+    background-color: rgb(68, 66, 66);
+    border-color: rgb(46, 43, 43);
+    color: white;
+}
+
+#voice-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#voice{
+    width: 40px;
+    height: 40px;
+    background-image: url(./십습문제_이미지2/icons/voice-search-icon.svg);
+    margin-left: 10px;
+    background-color: black;
+    border-radius: 30px 30px 30px 30px;
 }
 
 #etc{
     width: 200px;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+#etc>div{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    text-align: center;
+}
+
+#upload-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 100%;
+}
+
+#upload{
+    width : 80%;
+    height: 80%;
+    background: url(./십습문제_이미지2/icons/upload.svg) no-repeat center/contain;
+}
+
+#noti-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 100%;
+}
+
+#notifications{
+    width : 80%;
+    height: 80%;
+    background: url(./십습문제_이미지2/icons/notifications.svg) no-repeat center/contain;
+}
+
+#avatar-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 100%;
+}
+
+#avatar{
+    width : 37px;
+    height: 37px;
+    background: url(./십습문제_이미지2/images/avatars/avatar-1.png) no-repeat center/contain;
+    border-radius: 70%;
+}
+
+#section{
+    width: 100%;
+    height: calc(100% - 50px);
+    display: flex;
+}
+
+#left-section{
+    width: 50px;
+    height: 100%;
+}
+
+#left-section>div{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+#home{
+    margin-top: 10px;
+}
+
+#home>a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+}
+
+#home>span{
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+#home>a>div{
+    width: 30px;
+    height: 30px;
+    background: url(./십습문제_이미지2/icons/home.svg) no-repeat center/contain;
+}
+
+#originals>a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+}
+
+#originals>span{
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+#originals>a>div{
+    width: 30px;
+    height: 30px;
+    background: url(./십습문제_이미지2/icons/originals.svg) no-repeat center/contain;
+}
+
+#subscription>a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+}
+
+#subscription>span{
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+#subscription>a>div{
+    width: 30px;
+    height: 30px;
+    background: url(./십습문제_이미지2/icons/subscriptions.svg) no-repeat center/contain;
+}
+
+#music>a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+}
+
+#music>span{
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+#music>a>div{
+    width: 30px;
+    height: 30px;
+    background: url(./십습문제_이미지2/icons/library.svg) no-repeat center/contain;
+}
+
+
+#right-section{
+    width: calc(100% - 80px);
+    height: 100%;
+}
+
+#video{
+    width: 100%;
+    height: 100%;
+    margin: 5px;
+}
+
+/*
+#video div{
+    display: inline-block;
+}
+*/
+#video{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#video1{
+    margin: 10px;
+}
+
+#video1{
+    width: 400px;
+    height: 33%;
+}
+
+#thumbnails{
+    width: 100%;
+    height: 66%;
+    background: url(./십습문제_이미지2/images/thumbnails/thumbnail01.PNG) no-repeat center/contain;
+    border-radius: 10px;
+}
+
+#info{
+    width: 100%;
+    height: 34%;
+}
+
+#info{
+    display: flex;
+}
+
+#video-avatar{
+    width: 60px;
+    height: 100%;
+}
+
+#video-avatar>a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#video-avatar>a>div{
+    width : 37px;
+    height: 37px;
+    background: url(./십습문제_이미지2/images/avatars/avatar-1.png) no-repeat center/contain;
+    border-radius: 70%;
+}
+
+#video-text{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#video-text>span{
+    font-size: 11px;
+    color: rgba(189, 181, 181, 0.856);
 }
