@@ -1,0 +1,214 @@
+body{
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    background-color: rgb(250 250 252);
+}
+
+a{
+    text-decoration: none;
+}
+div, form{
+    box-sizing: border-box;
+}
+
+ul, li, ol{
+    list-style: none;
+}
+
+.wrap{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* head */
+.head{
+    width: 100%;
+    height: 22%;
+}
+
+.head-img{
+    width: 100%;
+    height: 70%;
+}
+
+.head-img>div{
+    float: left;
+}
+
+.logo{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.logo>a{
+    width: 100%;
+    height: 100%;
+    background: url(./img/빵빵이2.jpg) no-repeat center/contain;
+    border-radius: 30px 30px 30px 30px;
+}
+
+.title{
+    width: 50%;
+    height: 100%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title>a{
+    font-size: 50px;
+    color: mediumspringgreen;
+    font-family: Lucida;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.t-git{
+    width: 25%;
+    height: 100%;
+}
+
+.t-git>div{
+    float: right;
+}
+
+.tistory{
+    width: 15%;
+    height: 30%;
+}
+
+.tistory>a{
+    width: 100%;
+    height: 100%;
+    background: url(./img/티스토리.png) no-repeat center/cover;
+    display: flex;
+}
+
+.git{
+    width: 15%;
+    height: 30%;
+}
+
+.git>a{
+    width: 100%;
+    height: 100%;
+    background: url(./img/git.png) no-repeat center/contain;
+    display: flex;
+}
+
+.search{
+    width: 100%;
+    height: 25%;
+}
+
+.search>form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.search>form>input[type="text"]{
+    width: 15%;
+    height: 65%;
+    margin-right: 0;
+    border-radius: 30px 0 0 30px;
+    border-color: rgb(196, 187, 187);
+    box-shadow: none;
+    background-color: azure;
+}
+
+.search>form>input:focus{
+    outline: 1px solid red;
+}
+
+.search>form>input::placeholder{
+    color: black;
+    font-size: 16px;
+}
+
+.search>form>input[type="submit"]{
+    width: 3%;
+    height: 76%;
+    margin-right: 100px;
+    border-radius: 0 30px 30px 0;
+}
+
+/* navi */
+.navi-content{
+    margin: 0 100px;
+    height: 100%;
+}
+
+.navi{
+    width: 100%;
+    height: 7%;
+    border: 1px solid black;
+    margin-top: 0px;
+}
+
+.navi>ul{
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    border: 1px solid black;
+}
+
+.navi>ul>li{
+    display: block;
+    float: left;
+    margin: 20px 20px;
+}
+
+.navi>ul>li>a{
+    font-size: 25px;
+    color: violet;
+    font-family: Lucida Console;
+    font-weight: 800;
+}
+
+.navi>ul>li ul{
+    display: none;
+}
+
+/* content */
+.content{
+    margin-top: 10px;
+    width: 100%;
+    height: 78%;
+}
+
+.content>div{
+    float: left;
+}
+
+.left-content{
+    width: 10%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.left-content>ul>a{
+    font-size: 20px;
+}
+
+.right-content{
+    width: 89%;
+    height: 100%;
+    border: 1px solid black;
+    margin-left: 1%;
+}
+
+.right-content>p{
+    text-align: center;
+    font-size: 100px;
+    font-family: 굴림체;
+    font-weight: 800;
+    margin-top: 20%;
+}
