@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Practice1</h1>
+    <form action="">
+        <fieldset>
+            <legend>취미</legend>
+            <table>
+                <tr>
+                    <td>
+                        <label>
+                            <input type="checkbox" value="all" id="all" onchange="allCheck(this)">전체선택
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="hobby" value="syn">종합
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="hobby" value="novel">소설
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="hobby" value="essay">시/에세이
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="hobby" value="eco">경제/경영
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="hobby" value="self">자기계발
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="hobby" value="kid">아동
+                        </label>
+                    </td>
+                </tr>
+                <br>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="hobby" value="trip">여행
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="hobby" value="science">과학
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="hobby" value="history">역사/문화
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="hobby" value="foreign">외국어
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="hobby" value="com">컴퓨터
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="hobby" value="comic">만화
+                        </label>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+    <br>
+
+    <button onclick="category()">카테고리 선택</button>
+    <div id="area1" class="area"></div>
+
+    <script>
+        function allCheck(_this){
+            const all = _this.checked;
+            const checkList = document.getElementsByName("hobby");
+
+            for(list of checkList){
+                list.checked = all;
+            }
+        }
+
+        function hobbyCheckBox(){
+            const checkList = document.getElementsByName("hobby");
+
+            for(list of checkList){
+                if(!list.checked){
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        const checkList = document.getElementsByName("hobby");
+        for(list of checkList){
+            list.onchange = function(){
+                const allCheckBox = document.getElementById("all");
+                allCheckBox.checked = hobbyCheckBox();
+            }
+        }
+
+        function category(){
+            const checkList = document.getElementsByName("hobby");
+            const area = document.getElementById("area1");
+
+            let str = "";
+            for(list of checkList){
+                if(list.checked){
+                    str += list.value + " ";
+                }
+            }
+
+            area.innerHTML = str;
+        }
+    </script>
+</body>
+</html>

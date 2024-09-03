@@ -1,0 +1,122 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .calcResult{
+            background: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>Practice2</h2>
+    <input type="number" id="num1" value="num1" style="width: 70px;">
+    <select id="oper">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="number" id="num2" value="num2" style="width: 70px;">
+    <button onclick="calculator()">=</button>
+    <input type="text" id="result" style="width: 70px;">
+
+    <script>
+        function calculator(){
+            const num1 = Number(document.getElementById("num1").value);
+            const num2 = Number(document.getElementById("num2").value);
+
+            const oper = document.getElementById("oper").value;
+            const result = document.getElementById("result")
+
+            if(oper === '/' || oper === '%' && num2 === 0){
+                result.className = "calcResult";
+                result.value = "연산불가";
+            } else{
+                result.className = "";
+                result.value = calc(oper, num1, num2);              
+            }
+        }
+
+        function calc(oper, num1, num2){
+            let result = 0;
+            
+            switch(oper){
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    result = num1 / num2;
+                    break;
+                case "%":
+                    result = num1 % num2;
+                    break;
+            }
+
+            return result;
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pass{
+            color: green;
+        }
+
+        .none-pass{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Practice3</h2>
+    <form action="">
+        <fieldset>
+            <legend>회원가입</legend>
+            아이디 : <input type="text" id="userId" onkeyup="checkId(this)"><span id="iCheck"></span> <br><br>
+            비밀번호 : <input type="password" id="userPwd"> <br><br>
+            비밀번호 확인 : <input type="password" id="checkPwd"><span id="pCheck"></span> <br><br>
+            이름 : <input type="text"> <br><br><br>
+            
+            <input type="submit" value="회원가입" onclick="regist()">
+        </fieldset>
+    </form>
+
+    <script>
+        function checkId(_this){
+            const userId = _this.value;
+            const iCheck = document.getElementById("iCheck");
+            if(userId !== "user01"){
+                iCheck.innerHTML = "사용 가능한 아이디입니다.";
+                iCheck.className = "pass";
+            } else if(userId === ""){
+                iCheck.innerHTML = "";
+            }else{
+                iCheck.innerHTML = "이미 존재하는 아이디입니다."
+                iCheck.className = "none-pass";
+            }
+        }
+    </script>
+</body>
+</html>
