@@ -4,31 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+    <script
+        src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"
+        integrity="sha256-Fb0zP4jE3JHqu+IBB9YktLcSjI1Zc6J2b6gTjB0LpoM="
+        crossorigin="anonymous"></script>
     <style>
         fieldset{
             width: 300px;
             height: 30px;
             display: flex;
             justify-content: center;
-        }
-        legend{
             text-align: center;
+            gap: 24px;
         }
-        fieldset>label{
-            margin: 0 10px;
-            float: left;
-            display: flex;
+        .box{
+            background: lightgray;
+            padding: 12px;
         }
-        .wrap{
-            margin-top: 10px;
-            border: 1px solid black;
-            width: 320px;
-            height: 50px;
-            background: rgb(196, 196, 196);
-        }
-        .wrap>div{
-            display: ;
-        }
+        
     </style>
 </head>
 <body>
@@ -36,38 +33,60 @@
     <fieldset>
         <legend>검색할 항목을 선택하세요</legend>
         <label for="title">
-            <input type="radio" name="io">제목
+            <input type="radio" name="category" value="title" onclick="showSearchBox('title-search-box')">제목
         </label>
         <label>
-            <input type="radio" name="io">날짜
+            <input type="radio" name="category" value="date" onclick="showSearchBox('date-search-box')">날짜
         </label>
         <label>
-            <input type="radio" name="io">작성자
+            <input type="radio" name="category" value="writer" onclick="showSearchBox('writer-search-box')">작성자
         </label>
     </fieldset>
 
-    <div class="wrap">
-        <div>
-            <p>검색할 제목을 입력하세요 :</p>
-            <div>
-                <input type="text">
-                <button>검색</button>
-            </div>
-        </div>
-        <div>
-            <p>검색할 날짜를 선택하세요 :</p>
-            <div>
-                <input type="date"> - <input type="date">
-                <button>검색</button>
-            </div>
-        </div>
-        <div>
-            <p>검색할 항목을 선택하세요.</p>
-            <div>
-                <input type="text">
-                <button>검색</button>
-            </div>
-        </div>
+    <br>
+
+    <div id="title-search-box" class="box">
+        <form action="">
+            <label>검색할 제목을 입력하세요 : </label>
+            <br>
+            <input type="text" name="title" size="50"> &nbsp;
+            <input type="submit" value="검색" onclick="return false;">
+        </form>
     </div>
+
+    <div id="date-search-box" class="box">
+        <form action="">
+            <label>검색할 날짜를 선택하세요 : </label>
+            <br>
+            <input type="date" name="start"> - <input type="date" name="end">&nbsp;
+            <input type="submit" value="검색" onclick="return false;">
+        </form>
+    </div>
+
+    <div id="writer-search-box" class="box">
+        <form action="">
+            <label>검색할 작성자 아이디를 입력하세요 : </label>
+            <br>
+            <input type="text" name="writer" size="25"> &nbsp;
+            <input type="submit" value="검색" onclick="return false;">
+        </form>
+    </div>
+
+    <script>
+        function showSearchBox(id){
+            // let boxList = document.getElementsByClassName('box');
+            // for(let box of boxList){
+            //     box.style.display = "none"
+            // }
+
+            // document.getElementById(id).style.display = "block";
+            $(".box").hide();
+            $("#" + id).show();
+        }
+
+        $(function(){
+            document.querySelector("input[value='title']").click();
+        })
+    </script>
 </body>
 </html>

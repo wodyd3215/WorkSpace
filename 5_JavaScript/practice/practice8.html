@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .wrap{
+            /* border: 1px solid black; */
+            
+            height: 600px;
+            margin: 0 20px
+        }
+
+        h2{
+            width: 100%;
+            height: 7%;
+            font-size: 30px;
+            font-weight: 800;
+            text-align: center;
+            margin: 0;
+        }
+
+        .area1{
+            width: 100%;
+            height: 5%;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .area1>input{
+            background: rgb(240, 239, 239);
+            border: none;
+            width: 13%;
+            height: 92%;
+            border-radius: 50px 0 0 50px;
+            padding-left: 15px;
+        }
+
+        .area1>button{
+            background: rgb(240, 239, 239);
+            border: none;
+            width: 2%;
+            height: 100%;
+            border-radius: 0 50px 50px 0;
+        }
+
+        .area2{
+            /* border: 1px solid black; */
+            text-align: center;
+            line-height: 30px;
+            font-weight: 600;
+            background-color: rgb(240, 239, 239);
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .area2>button{
+            width: 30px;
+            height: 30px;
+            background: rgb(190, 229, 241);
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h2>TodoList</h2>
+        <div class="area1">
+            <input type="text" id="doing">
+            <button onclick="addList()">+</button>
+        </div>
+
+        <div class="area2" id="list">
+            <button onclick="drop()" id="drop-btn">x</button>
+        </div>
+    </div>
+
+    <script>
+        function addList(){
+            const area2 = document.getElementById("list");
+            const doing = document.getElementById("doing");
+
+            area2.innerHTML += doing.value + "<br>";
+            doing.value = "";
+            
+        }
+    </script>
+</body>
+</html>

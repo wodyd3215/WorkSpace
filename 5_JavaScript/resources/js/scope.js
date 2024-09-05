@@ -36,11 +36,11 @@ test3();
 console.log(number1);
 
 /*
-    JS -> Lexical Scope
-    선언된 위치가 상위 스코프를 정한다.
+    JS -> Lexical Scope(정적 스코프)
+    선언된 위치가 상위 스코프를 정한다. : 선언된 위치에 따라 값을 가져옴
 
-    Dynamic Scope
-    실행한 위치가 상위 스코프를 정한다.
+    Dynamic Scope(동적 스코프)
+    실행한 위치가 상위 스코프를 정한다. : 실행한 위치에 따라 값을 가져옴
 */
 
 // var i = 1000;

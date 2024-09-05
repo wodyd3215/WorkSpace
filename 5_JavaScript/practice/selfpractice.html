@@ -73,50 +73,36 @@
 
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .pass{
-            color: green;
+        #test1{
+            width: 50px;
+            height: 50px;
+            background: red;
+            left: 10px;
+            top: 10px;
+            position: relative;
         }
 
-        .none-pass{
-            color: red;
+        #test2{
+            width: 50px;
+            height: 50px;
+            background: blue;
+            left: 10px;
+            top: 10px;
+            position: absolute;
         }
     </style>
 </head>
 <body>
-    <h2>Practice3</h2>
-    <form action="">
-        <fieldset>
-            <legend>회원가입</legend>
-            아이디 : <input type="text" id="userId" onkeyup="checkId(this)"><span id="iCheck"></span> <br><br>
-            비밀번호 : <input type="password" id="userPwd"> <br><br>
-            비밀번호 확인 : <input type="password" id="checkPwd"><span id="pCheck"></span> <br><br>
-            이름 : <input type="text"> <br><br><br>
-            
-            <input type="submit" value="회원가입" onclick="regist()">
-        </fieldset>
-    </form>
-
-    <script>
-        function checkId(_this){
-            const userId = _this.value;
-            const iCheck = document.getElementById("iCheck");
-            if(userId !== "user01"){
-                iCheck.innerHTML = "사용 가능한 아이디입니다.";
-                iCheck.className = "pass";
-            } else if(userId === ""){
-                iCheck.innerHTML = "";
-            }else{
-                iCheck.innerHTML = "이미 존재하는 아이디입니다."
-                iCheck.className = "none-pass";
-            }
-        }
-    </script>
+    <div id="test1">
+        <div id="test2"></div>
+    </div>
+    
 </body>
-</html>
+</html> -->
