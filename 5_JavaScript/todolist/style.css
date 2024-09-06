@@ -18,7 +18,7 @@ ul, li, ol{
 
 h1{
     font-size: 52px;
-    font-weight: 800;
+    font-weight: 900;
     text-align: center;
     margin: 0px;
 }
@@ -36,14 +36,14 @@ h1{
 }
 
 .main #search-bar{
-    width: calc(100% -24px);
+    width: calc(100% - 24px);
     padding: 24px 0;
 }
 
 .main #search-bar > input{
     min-width: 250px;
     border-radius: 50px 0 0 50px;
-    background: #f1f1f1;
+    background: #f4f4f4;
     border: none;
     outline: none;
     height: 40px;
