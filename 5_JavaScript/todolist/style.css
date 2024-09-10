@@ -67,7 +67,7 @@ h1{
     padding: 0px 24px;
 }
 
-.todo-list > li{
+.container .todo-list > li{
     display: flex;
     align-items: center;
     justify-content: center;

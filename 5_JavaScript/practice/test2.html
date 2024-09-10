@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test2</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 400px;
+            border: 1px solid gray;
+            margin: 10px;
+        }
+
+        form{
+            margin-left: 23px;
+        }
+
+        .review{
+            font-size: 10px;
+            font-weight: 100;
+            color: rgba(128, 128, 128, 0.637);
+            margin-left: 100px;
+        }
+
+        .user-input{  
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        input{
+            border: none;
+            border-bottom: 2px dashed; /* 밑줄 */
+            padding: 5px;
+            width: 250px;
+        }
+
+        #userId{
+            display: flex;
+        }
+
+        #userId>p{
+            margin-right: 55px;
+        }
+
+        #userPwd{
+            display: flex;
+        }
+
+        #userPwd>p{
+            margin-right: 40px;
+        }
+
+        #pwd-check{
+            display: flex;
+        }
+
+        #pwd-check>p{
+            margin-right: 5px;
+        }
+
+        #userEmail{
+            display: flex;
+        }
+
+        #userEmail>p{
+            margin-right: 55px;
+        }
+
+        #userEmail>input{
+            width: 120px;
+        }
+
+        #userAddress{
+            display: flex;
+        }
+
+        #userAddress>p{
+            margin-right: 70px;
+        }
+
+        #signUp{
+            margin-top: 45px;
+            margin-bottom: 10px;
+            width: 350px;
+            height: 50px;
+            background: rgb(196, 231, 142);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #signUp>a{
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div id="userId">
+            <p class="user-input">아이디</p>
+            <input type="text"  id="a" onblur="checkInputA()">
+        </div>
+        <p class="review" id="reviewA"></p>
+
+        <div id="userPwd">
+            <p class="user-input">패스워드</p>
+            <input type="password" id="b" onclick="checkPwd(this)" onblur="checkInputB()">
+        </div>
+        <p class="review" id="pwd-review"></p>
+        <p class="review" id="reviewB"></p>
+
+        <div id="pwd-check">
+            <p class="user-input">패스워드 확인</p>
+            <input type="text" id="c" onblur="checkInputC()">
+        </div>
+        <p class="review" id="reviewC"></p>
+
+        <div id="userEmail">
+            <p class="user-input">이메일</p>
+            <input type="text"><span><br><br>@</span>
+            <input type="text">
+        </div>
+
+        <div id="userAddress">
+            <p class="user-input">주소</p>
+            <input type="text">
+        </div>
+
+        <div id="signUp">
+            <a href="">가입</a>
+        </div>
+    </form>
+
+    <script>
+        function checkPwd(_this){
+            const pwdValue = _this.value;
+            const review = document.getElementById("pwd-review");
+
+            review.innerHTML = "영문자 대/소문자 특수문자, 숫자 포함 8 ~ 32자"
+        }
+
+        function checkInputA(){
+            const value = document.getElementById("a").value;
+            const review = document.getElementById("reviewA");
+
+            if(value === ""){
+                review.innerHTML = "필수 입력 항목 입니다"
+            } else{
+                review.innerHTML = "";
+            } 
+        }
+
+        function checkInputB(){
+            const value = document.getElementById("b").value;
+            const review = document.getElementById("reviewB");
+
+            if(value === ""){
+                review.innerHTML = "필수 입력 항목 입니다"
+            } else{
+                review.innerHTML = "";
+            }
+        }
+
+        function checkInputC(){
+            const value = document.getElementById("c").value;
+            const review = document.getElementById("reviewC");
+
+            if(value === ""){
+                review.innerHTML = "필수 입력 항목 입니다"
+            } else{
+                review.innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>

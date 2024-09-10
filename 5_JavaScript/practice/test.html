@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        
+        p, div{
+            margin: 0;
+            padding: 0;
+        }
+
+        .title{
+            display: flex;
+        }
+
+        .title > p{
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+            font-weight: 800;
+        }
+
+        #title-input > input{
+            width: 250px;
+        }
+
+        .content{
+            display: flex;
+            height: 130px;
+        }
+
+        .content > p{
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+            font-weight: 800;
+        }
+
+        #content-input > input{
+            width: 250px;
+            height: 130px;
+            margin: 5px 0;
+        }
+
+        .file{
+            display: flex;
+        }
+
+        .file > p{
+            display: flex;
+            align-items: center;
+            margin: 15px 7px;
+            font-weight: 800;
+        }
+
+        #file-input > input{
+            margin-top: 10px;
+        }
+
+        .submit{
+            margin-left: 130px;
+        }
+
+        .th{
+            color: white;
+            background: rgb(253, 160, 117);
+        }
+        .td{
+            background: rgb(255, 255, 227);
+        }
+    </style>
+</head>
+<body>
+    <form action="insert.no" method="post">
+        <fieldset>
+            <legend>공지사항 작성하기</legend>
+            <div class="title">
+                <p>제목</p>
+                <div id="title-input">
+                    <input type="text" name="title" placeholder="제목을 입력하시오.">
+                </div>
+            </div>
+
+            <div class="content">
+                <p>내용</p>
+                <div id="content-input">
+                    <input type="text" name="content" placeholder="내용을 입력하시오.">
+                </div>
+            </div>
+            
+            <div class="file">
+                <p>첨부파일</p>
+                <div id="file-input">
+                    <input type="file" name="uploadFile">
+                </div>
+            </div>
+
+            <div class="submit">
+                <input type="submit" value="작성하기">
+            </div>
+        </fieldset>
+    </form>
+
+    <br>
+    <hr>
+    <br>
+
+    <table border="1">
+        <tr class="th">
+            <th>번호</th>
+            <th width="400" colspan="2">제목</th>
+            <th width="100">작성자</th>
+            <th width="100">작성일</th>
+            <th>조회수</th>
+        </tr>
+        <tr class="td">
+            <td>9</td>
+            <td width="330">공지사항 제목 9</td>
+            <td><button>바로가기</button></td>
+            <td>user01</td>
+            <td>2021-03-29</td>
+            <td>34</td>
+        </tr>
+        <tr class="td">
+            <td>6</td>
+            <td width="330">공지사항 제목 6</td>
+            <td><button>바로가기</button></td>
+            <td>answ445</td>
+            <td>2021-03-12</td>
+            <td>67</td>
+        </tr>
+        <tr class="td">
+            <td>3</td>
+            <td width="330">공지사항 제목 3</td>
+            <td><button>바로가기</button></td>
+            <td>testg12</td>
+            <td>2021-03-01</td>
+            <td>98</td>
+        </tr>
+        <tr class="td">
+            <td>2</td>
+            <td width="330">공지사항 제목 2</td>
+            <td><button>바로가기</button></td>
+            <td>palwe3</td>
+            <td>2021-01-02</td>
+            <td>85</td>
+        </tr>
+        <tr class="td">
+            <td>1</td>
+            <td width="330">공지사항 제목 1</td>
+            <td><button>바로가기</button></td>
+            <td>xml23</td>
+            <td>2020-12-24</td>
+            <td>124</td>
+        </tr>
+        <tr class="th">
+            <th colspan="4">전체공지사항 갯수</th>
+            <th colspan="2">5개</th>
+        </tr>
+    </table>
+
+    <br><br><br><br>
+</body>
+</html>
