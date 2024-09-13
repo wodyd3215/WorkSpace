@@ -71,20 +71,21 @@
         script태그는 head태그, body태그 다 작성 가능
     </p>
 
-    <button id="btn">알림창 출력</button>
-    <button onclick="btnClick();">콘솔창 출력</button>
+    <button id="btn">알림창출력</button>
+    <!-- <button onclick="btnClick();">콘솔창출력</button> -->
 
     <script>
         // 자바스크립트 영역
         // 이벤트를 부여하고자 하는 요소를 선택해서 변수에 담아보자
-        let btn = document.getElementById("btn");
+        // let btn = document.getElementById("btn");
+        const btn = document.write("알림창 출력 버튼!");
         btn.onclick = function(){
-            window.alert("알림창 출력 버튼 클릭!!");    
+            window.alert("알림창 출력!");    
         }
 
         // 함수에 이름을 넣어서 정의
         function btnClick(){
-            console.log("콘솔 버튼 클릭!!");
+            console.log("콘솔창 출력!");
         }
     </script>
 
