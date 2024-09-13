@@ -17,7 +17,7 @@
 
     <h4><%=sdf.format(today)%></h4>
 
-    <!-- 
+    <!-- http:sdkjflksj;lsa/co/?dfasdfsadf
         주문자정보, 주문정보를 입력받아서
         서버에 결제요청(servlet전달)
         controller -> PizzaServlet.java
