@@ -42,7 +42,6 @@ public class MemberDao {
 			pstmt.setString(2, userPwd);
 			
 			rset = pstmt.executeQuery(); // 조회결과가 있다면 한 행 반환 | 없다면 반환X
-			
 			if(rset.next()) {
 				m = new Member(
 						rset.getInt("user_no"),
@@ -67,5 +66,126 @@ public class MemberDao {
 		}
 		
 		return m;
+	}
+	
+	public int insertMember(Connection conn, Member m) {
+		// insert문 -> 처리된 행 수 -> 반환
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, m.getUserId());
+			pstmt.setString(2, m.getUserPwd());
+			pstmt.setString(3, m.getUserName());
+			pstmt.setString(4, m.getPhone());
+			pstmt.setString(5, m.getEmail());
+			pstmt.setString(6, m.getAddress());
+			pstmt.setString(7, m.getInterest());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int updatePwdMember(Connection conn, String userId, String userPwd, String updatePwd) {
+		// update => 처리된 행수
+		int result = 0;
+		
+		PreparedStatement pstmt= null;
+		String sql = prop.getProperty("updatePwdMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, updatePwd);
+			pstmt.setString(2, userId);
+			pstmt.setString(3, userPwd);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+		
+	public Member selectMember(Connection conn, String userId) {
+		//select -> Member조회 -> ResultSet객체
+		
+		Member m = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectMember");
+		System.out.println(sql);
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			
+			rset = pstmt.executeQuery(); // 조회결과가 있다면 한 행 반환 | 없다면 반환X
+			if(rset.next()) {
+				m = new Member(
+						rset.getInt("user_no"),
+						rset.getString("user_id"),
+						rset.getString("user_pwd"),
+						rset.getString("user_name"),
+						rset.getString("phone"),
+						rset.getString("email"),
+						rset.getString("address"),
+						rset.getString("interest"),
+						rset.getDate("enroll_date"),
+						rset.getDate("modify_date"),
+						rset.getString("status")
+						);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return m;
+	}
+	
+	public int updateMemberInfo(Connection conn, String phone, String email, String address, String interest) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateMemberInfo");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, phone);
+			pstmt.setString(2, email);
+			pstmt.setString(3, address);
+			pstmt.setString(4, interest);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 }
