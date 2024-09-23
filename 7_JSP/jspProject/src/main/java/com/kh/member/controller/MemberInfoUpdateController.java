@@ -2,6 +2,7 @@ package com.kh.member.controller;
 
 import java.io.IOException;
 
+import com.kh.member.model.vo.Member;
 import com.kh.member.service.MemberService;
 
 import jakarta.servlet.ServletException;
@@ -30,6 +31,8 @@ public class MemberInfoUpdateController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
+		String userId = request.getParameter("userId");
+		String userName = request.getParameter("userName");
 		String phone = request.getParameter("phone");
 		String email = request.getParameter("email");
 		String address = request.getParameter("address");
@@ -40,17 +43,22 @@ public class MemberInfoUpdateController extends HttpServlet {
 			interest = String.join(",", interestArr);
 		}
 		
-		int result = new MemberService().updateMemberInfo(phone, email, address, interest);
+		Member m = new Member(userId, userName, phone, email, address, interest);
 		
-		if(result > 0) {
-			HttpSession session = request.getSession();
-			session.setAttribute("alertMsg", "성공적으로 정보를 수정하였습니다.");
-			
-			response.sendRedirect(request.getContextPath());
-		} else {
+		Member updateMem = new MemberService().updateMemberInfo(m);
+		
+		if(updateMem == null) { // 실패
+			// 에러문구 담아서 에러페이지 포워딩
 			request.setAttribute("errorMsg", "회원정보 수정에 실패하였습니다.");
 			
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+		} else { // 성공
+			// loginUser데이터 최신화 -> myPage.me 재요청
+			HttpSession session = request.getSession();
+			session.setAttribute("loginUser", updateMem);
+			session.setAttribute("alertMsg", "성공적으로 수정하였습니다.");
+			
+			response.sendRedirect(request.getContextPath() + "/myPage.me");
 		}
 	}
 

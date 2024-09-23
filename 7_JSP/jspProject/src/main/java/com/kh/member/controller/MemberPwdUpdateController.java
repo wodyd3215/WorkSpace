@@ -37,7 +37,7 @@ public class MemberPwdUpdateController extends HttpServlet {
 		
 		Member updateMember = new MemberService().updatePwdMember(userId, userPwd, updatePwd);
 		
-		if(updateMember == null) { // 수정 실패
+		if(updateMember == null) { //수정에 실패
 			request.setAttribute("errorMsg", "비밀번호 수정에 실패하였습니다.");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		} else {

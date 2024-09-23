@@ -33,14 +33,14 @@ public class MemberInsertController extends HttpServlet {
 		
 		String userId = request.getParameter("userId"); // "user04"
 		String userPwd = request.getParameter("userPwd"); // "pass04"
-		String userName = request.getParameter("userName"); // "최지웨이"
+		String userName = request.getParameter("userName"); // "최지워이"
 		String phone = request.getParameter("phone"); // "010-1111-2222" || ""
 		String email = request.getParameter("email"); // "user04@gmail.com" || ""
 		String address = request.getParameter("address"); // "경기도 하남시" || ""
-		String[] interestArr = request.getParameterValues("interest"); // ["운동", "게임", "영화"] || null
+		String[] interestArr = request.getParameterValues("interest"); //["운동", "게임", "영화"] || null
 		
-		// String[] -> String  => 배열은 문자열로 만들어줘야함
-		// ["운동", "게임", "영화"] -> "운동,게임,영화"
+		//String[] -> String
+		//["운동", "게임", "영화"] -> "운동,게임,영화"
 		String interest = "";
 		if(interestArr != null) {
 			interest = String.join(",", interestArr);
@@ -48,17 +48,17 @@ public class MemberInsertController extends HttpServlet {
 		
 		Member m = new Member(userId, userPwd, userName, phone, email, address, interest);
 		
-		// sql요청 -> service -> dao -> sql실행
+		//sql요청 -> service -> dao -> sql실행
 		int result = new MemberService().insertMember(m);
 		
-		if(result > 0) { // 회원가입 성공
+		if(result > 0) {//회원가입 성공
 			HttpSession session = request.getSession();
 			session.setAttribute("alertMsg", "성공적으로 회원가입이 되었습니다.");
 			
-			// jsp url 재요청 -> index페이지로
+			//jsp url 재요청 -> index페이지로
 			response.sendRedirect(request.getContextPath());
-		} else { // 회원가입 실패
-			// 에러문구가 보여지는 에러페이지
+		} else { //회원가입 실패
+			//에러문구가 보여지는 에러페이지
 			request.setAttribute("errorMsg", "회원가입에 실패하였습니다.");
 			
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
