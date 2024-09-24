@@ -3,7 +3,7 @@ package com.kh.member.controller;
 import java.io.IOException;
 
 import com.kh.member.model.vo.Member;
-import com.kh.member.service.MemberService;
+import com.kh.member.sevice.MemberService;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;

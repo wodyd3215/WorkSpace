@@ -181,7 +181,7 @@ public class MemberDao {
 		return result;
 	}
 	
-	public int updateMemberInfo(Connection conn, Member m) {
+	public int updateMember(Connection conn, Member m) {
 		//update -> 처리된 행 수
 		int result = 0;
 		
