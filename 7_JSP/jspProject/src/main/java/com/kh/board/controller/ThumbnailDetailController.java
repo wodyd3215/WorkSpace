@@ -1,6 +1,7 @@
 package com.kh.board.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.kh.board.model.vo.Attachment;
 import com.kh.board.model.vo.Board;
@@ -12,15 +13,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BoardDetailController
+ * Servlet implementation class ThumbnailDetailController
  */
-public class BoardDetailController extends HttpServlet {
+public class ThumbnailDetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardDetailController() {
+    public ThumbnailDetailController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,15 +32,15 @@ public class BoardDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int boardNo = Integer.parseInt(request.getParameter("bno"));
 		
+		//조회수 1증가시키고 디테일 페이지정보 가져오기
 		Board b = new BoardService().increaseCount(boardNo);
 		
 		if(b != null) {
-			Attachment at = new BoardService().selectAttachment(boardNo);
+			ArrayList<Attachment> list = new BoardService().selectAttachmentList(boardNo);
+			request.setAttribute("b", b);
+			request.setAttribute("list", list);
 			
-			request.setAttribute("board", b);
-			request.setAttribute("attachment", at);
-			
-			request.getRequestDispatcher("views/board/boardDetailView.jsp").forward(request, response);
+			request.getRequestDispatcher("views/board/thumbnailDetailView.jsp").forward(request, response);
 		} else {
 			request.setAttribute("errorMsg", "게시글 조회 실패");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);

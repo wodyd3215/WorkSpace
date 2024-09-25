@@ -169,4 +169,44 @@
     <servlet-name>enrollForm.th</servlet-name>
     <url-pattern>/enrollForm.th</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>insert.th</display-name>
+    <servlet-name>insert.th</servlet-name>
+    <servlet-class>com.kh.board.controller.ThumbnailInsertController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>insert.th</servlet-name>
+    <url-pattern>/insert.th</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>detail.th</display-name>
+    <servlet-name>detail.th</servlet-name>
+    <servlet-class>com.kh.board.controller.ThumbnailDetailController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>detail.th</servlet-name>
+    <url-pattern>/detail.th</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>jqAjax.do</display-name>
+    <servlet-name>jqAjax.do</servlet-name>
+    <servlet-class>com.kh.common.AjaxTestController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>jqAjax.do</servlet-name>
+    <url-pattern>/jqAjax.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>idCheck.me</display-name>
+    <servlet-name>idCheck.me</servlet-name>
+    <servlet-class>com.kh.member.controller.AjaxCheckController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>idCheck.me</servlet-name>
+    <url-pattern>/idCheck.me</url-pattern>
+  </servlet-mapping>
 </web-app>

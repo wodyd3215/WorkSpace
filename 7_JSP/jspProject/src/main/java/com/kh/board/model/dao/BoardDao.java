@@ -105,14 +105,14 @@ public class BoardDao {
 	}
 	
 	public int increaseCount(Connection conn, int boardNo) {
-		//update -> 처리된 행수 -> 트랜잭션처리
 		int result = 0;
-		PreparedStatement pstmt = null;
 		
+		PreparedStatement pstmt = null;
 		String sql = prop.getProperty("increaseCount");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
 			pstmt.setInt(1, boardNo);
 			
 			result = pstmt.executeUpdate();
@@ -127,26 +127,27 @@ public class BoardDao {
 	
 	public Board selectBoard(Connection conn, int boardNo) {
 		//select -> ResultSet(한행) -> Board
-		
 		ResultSet rset = null;
-		Board b = null;
-		
 		PreparedStatement pstmt = null;
+		
 		String sql = prop.getProperty("selectBoard");
 		
+		Board b = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
 			pstmt.setInt(1, boardNo);
 			
 			rset = pstmt.executeQuery();
+			
 			if(rset.next()) {
 				b = new Board(
-							rset.getInt("board_no"),
-							rset.getString("category_name"),
-							rset.getString("board_title"),
-							rset.getString("board_content"),
-							rset.getString("user_id"),
-							rset.getString("create_date")
+						rset.getInt("board_no"),
+						rset.getString("category_name"),
+						rset.getString("board_title"),
+						rset.getString("board_content"),
+						rset.getString("user_id"),
+						rset.getString("create_date")
 						);
 			}
 		} catch (SQLException e) {
@@ -161,15 +162,14 @@ public class BoardDao {
 	
 	public Attachment selectAttachment(Connection conn, int boardNo) {
 		//select -> ResultSet(한행) -> Attachment
-		
 		ResultSet rset = null;
-		Attachment at = null;
-		
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("selectAttachment");
 		
+		String sql = prop.getProperty("selectAttachment");
+		Attachment at = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
 			pstmt.setInt(1, boardNo);
 			
 			rset = pstmt.executeQuery();
@@ -188,6 +188,7 @@ public class BoardDao {
 		}
 		
 		return at;
+				
 	}
 	
 	public ArrayList<Category> selectCategoryList(Connection conn){
@@ -375,10 +376,88 @@ public class BoardDao {
 		
 		return list;
 	}
+	
+	public int insertThumbnailBoard(Connection conn, Board b) {
+		//insert -> 처리된 행 수 
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertThBoard");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, b.getBoardTitle());
+			pstmt.setString(2, b.getBoardContent());
+			pstmt.setInt(3, Integer.parseInt(b.getBoardWriter()));
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	public int insertAttachmentList(Connection conn, ArrayList<Attachment> list) {
+		// insert -> 처리된 행 수
+		int result = 1;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertAttachmentList");
+		
+		try {
+			for(Attachment at : list) {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, at.getOriginName());
+				pstmt.setString(2, at.getChangeName());
+				pstmt.setString(3, at.getFilePath());
+				pstmt.setInt(4, at.getFileLevel());
+				
+				result = result * pstmt.executeUpdate();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	public ArrayList<Attachment> selectAttachmentList(Connection conn, int boardNo) {
+		//select -> ResultSet(여러 행) -> Attachment
+		
+		ResultSet rset = null;
+		ArrayList<Attachment> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("selectAttachment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				
+				Attachment at = new Attachment();
+				at.setFileNo(rset.getInt("file_no"));
+				at.setChangeName(rset.getString("change_name"));
+				at.setFilePath(rset.getString("file_path"));
+				list.add(at);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
 }
-
-
-
-
-
 

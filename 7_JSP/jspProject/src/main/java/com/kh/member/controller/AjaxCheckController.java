@@ -1,10 +1,8 @@
-package com.kh.board.controller;
+package com.kh.member.controller;
 
 import java.io.IOException;
 
-import com.kh.board.model.vo.Attachment;
-import com.kh.board.model.vo.Board;
-import com.kh.board.service.BoardService;
+import com.kh.member.sevice.MemberService;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -12,15 +10,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BoardDetailController
+ * Servlet implementation class AjaxCheckController
  */
-public class BoardDetailController extends HttpServlet {
+public class AjaxCheckController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardDetailController() {
+    public AjaxCheckController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,20 +27,13 @@ public class BoardDetailController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int boardNo = Integer.parseInt(request.getParameter("bno"));
+		String checkId = request.getParameter("checkId");
+		int count = new MemberService().idCheck(checkId);
 		
-		Board b = new BoardService().increaseCount(boardNo);
-		
-		if(b != null) {
-			Attachment at = new BoardService().selectAttachment(boardNo);
-			
-			request.setAttribute("board", b);
-			request.setAttribute("attachment", at);
-			
-			request.getRequestDispatcher("views/board/boardDetailView.jsp").forward(request, response);
+		if(count > 0) {
+			response.getWriter().print("NNNNN");
 		} else {
-			request.setAttribute("errorMsg", "게시글 조회 실패");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+			response.getWriter().print("NNNNY");
 		}
 	}
 
