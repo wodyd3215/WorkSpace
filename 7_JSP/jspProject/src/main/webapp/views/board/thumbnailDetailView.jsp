@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +25,7 @@
     .outer > table tr, .outer > table td{
         border: 1px solid white;
     }
+    
 </style>
 
 </head>
@@ -38,7 +40,7 @@
                 <tr>
                     <th width="100">제목</th>
                     <td colspan="3">
-                        ${b.boardTitle}
+                       ${b.boardTitle}
                     </td>
                 </tr>
                 <tr>
@@ -50,7 +52,7 @@
                 <tr></tr>
                     <th>내용</th>
                     <td colspan="3">
-                        <p>${b.boardContent}</p>
+                        <p>${b.boardContent}</p>         
                     </td>
                 </tr>
                 <tr>
@@ -59,12 +61,11 @@
                         <img width="250" height="170" src="<%=contextPath%>/${list[0].filePath}${list[0].changeName}">
                     </td>
                 </tr>
-
                 <tr>
                     <th>상세이미지</th>
                     <c:forEach var="attachment" items="${list}" varStatus="status">
                         <c:if test="${!status.first}">
-                            <td>
+                            <td >
                                 <img width="150" height="120" src="<%=contextPath%>/${attachment.filePath}${attachment.changeName}">
                             </td>
                         </c:if>
@@ -77,6 +78,7 @@
             <div align="center">
                 <a href="<%=contextPath%>/list.th" class="btn btn-sm">목록가기</a>
             </div>
+
     </div>
 </body>
 </html>

@@ -5,10 +5,10 @@
 	ArrayList<Category> list = (ArrayList<Category>)request.getAttribute("list");
 
     Board b = (Board)request.getAttribute("b");
-    // 글번호, 카테고리명, 제목, 내용, 작성자, 작성일
+    //글번호, 카테고리명, 제목, 내용, 작성자, 작성일
 
     Attachment at = (Attachment)request.getAttribute("at");
-    // null일 수도 있음
+    // null일 수도있음
     // 있다면 파일번호, 원본명, 수정명, 저장경로
 %>
 <!DOCTYPE html>
@@ -61,7 +61,7 @@
                             <% } %>
                         </select>
                         <script>
-                            const opList = document.querySelectorAll("#update-form option")
+                            const opList = document.querySelectorAll("#update-form option");
                             for(let opt of opList){
                                 if(opt.innerText === "<%=b.getCategory()%>"){
                                     opt.selected = true;
@@ -85,10 +85,10 @@
                 <tr>
                     <th>청부파일</th>
                     <td>
-                        <% if(at != null) { %>
+                        <%  if(at != null) { %>
                             <%=at.getOriginName()%>
                             <input type="hidden" name="originFileNo" value="<%=at.getFileNo()%>">
-                        <% } %>
+                        <% }%>
                         <input type="file" name="upfile">
                     </td>
                 </tr>

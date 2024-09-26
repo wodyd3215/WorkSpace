@@ -121,31 +121,32 @@
         }
         
         function idCheck(){
-        	// 중복확인버튼 클릭시 사용자가 입력한 아이디값을 서버에 보내서 조회 요청 -> 응답받기
-            // 1) 사용불가 -> alert메세지출력(이미 존재하는 아이디입니다.)
-            // 2) 사용가능 -> 진짜 사용할거니? -> ok : 더 이상 아이디 수정 못하게
-            //                                  no : 다시 입력하도록 유도
+        	//중복확인버튼 클릭시 사용자가 입력한 아이디값을 서버에 보내서 조회요청 -> 응답받기
+            //1) 사용불가 -> alert메세지출력(이미 존재하는 아이디입니다.)
+            //2) 사용가능 -> 진짜사용할거니? ->  ok : 더이상아이디 수정못하게
+            //                                 no : 다시 입력하도록 유도
 
-            const idInput = document.querySelector("#enroll-from input[name=userId]");
+            const idInput = document.querySelector("#enroll-form input[name=userId]");
+            console.log(idInput)
 
             $.ajax({
-                url : "idCheck.me",
                 type : "get",
+                url : "idCheck.me",
                 data : {
                     checkId : idInput.value
-                },
+                }, 
                 success : function(result){
-                    if(result === "NNNNY"){
+                    if(result === "NNNNY") {
                         if(confirm("사용가능한 아이디입니다. 정말 사용하시겠습니까? ")){
                             idInput.setAttribute("readonly", true);
-                            
-                            const submitBtn = document.querySelector("#enroll-form input[type=submit]");
-                            submitBtn.removeAttribute("disabled");
+
+                            const subminBtn = document.querySelector("#enroll-form input[type=submit]");
+                            subminBtn.removeAttribute("disabled");
                         } else {
                             idInput.focus();
                         }
                     } else {
-                        alert("사용불가능한 아이디 입니다.")
+                        alert("사용불가능한 아이디입니다.");
                         idInput.focus();
                     }
                 },

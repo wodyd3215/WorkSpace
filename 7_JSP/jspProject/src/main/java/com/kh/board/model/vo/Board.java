@@ -42,12 +42,13 @@ public class Board {
 		this.createDate = createDate;
 	}
 
+	
 	public String getTitleImg() {
 		return titleImg;
 	}
 
-	public void setTitleImg(String tilteImg) {
-		this.titleImg = tilteImg;
+	public void setTitleImg(String titleImg) {
+		this.titleImg = titleImg;
 	}
 
 	public int getBoardNo() {
@@ -126,7 +127,7 @@ public class Board {
 	public String toString() {
 		return "Board [boardNo=" + boardNo + ", boardType=" + boardType + ", category=" + category + ", boardTitle="
 				+ boardTitle + ", boardContent=" + boardContent + ", boardWriter=" + boardWriter + ", count=" + count
-				+ ", createDate=" + createDate + ", status=" + status + ", tilteImg=" + titleImg + "]";
+				+ ", createDate=" + createDate + ", status=" + status + ", titleImg=" + titleImg + "]";
 	}
 
 }

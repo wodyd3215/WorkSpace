@@ -38,13 +38,13 @@ public class AjaxTestController extends HttpServlet {
 		System.out.println(name);
 		System.out.println(age);
 		
-		// 여러개를 한번에 반환하기 어렵다
-		// response.getWriter().print(name);
-		// response.getWriter().print(age);
+		//여러개를 한번에 반환하기 어렵다
+		//response.getWriter().print(name);
+		//response.getWriter().print(age);
 		
 		/*
-		 * JSON(자바스크립트에서 객체를 표현했던 방법, 실제로는 파일형식을 의미한다.)
-		 * ajax통신시 데이터전송에 가장 많이 사용되는 포맷형식 중 하나
+		 * JSON(자바스크립트에서 객체를 표현했던 방법, 실제로는 파일형식을 의미한다)
+		 * ajax통신시 데이터전송에 가장 많이 사용되는 포맷형식중 하나
 		 * 
 		 * JSONArray
 		 * [value,value,value...]
@@ -64,10 +64,10 @@ public class AjaxTestController extends HttpServlet {
 		
 		ArrayList<Member> list = new ArrayList<>();
 		list.add(new Member(1, "김개똥", "01011112222"));
-		list.add(new Member(2, "최개똥", "01011231222"));
-		list.add(new Member(3, "박개똥", "01011113512"));
-		list.add(new Member(4, "이개똥", "01034274222"));
-		list.add(new Member(5, "서개똥", "01012369222"));
+		list.add(new Member(2, "최개똥", "01011322222"));
+		list.add(new Member(3, "박개똥", "01011432222"));
+		list.add(new Member(4, "이개똥", "01011115422"));
+		list.add(new Member(5, "서개똥", "01011113322"));
 		
 		/*
 		JSONArray jArr = new JSONArray();
@@ -83,9 +83,10 @@ public class AjaxTestController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		response.getWriter().print(jArr);
 		*/
-		
 		response.setContentType("text/html; charset=UTF-8");
 		new Gson().toJson(list, response.getWriter());
+		
+		
 	}
 
 	/**

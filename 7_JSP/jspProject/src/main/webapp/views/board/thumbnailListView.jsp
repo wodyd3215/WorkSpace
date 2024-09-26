@@ -21,6 +21,7 @@
 
         .list-area{
             max-width: 850px;
+            min-height: 500px;
             margin: auto;
         }
 
@@ -29,7 +30,7 @@
             border: 1px solid white;
             padding: 12px;
             margin: 14px;
-            width: 252px;
+            width: 250px;
             box-sizing: border-box;
         }
         .thumbnail:hover{
@@ -60,7 +61,7 @@
 
         <div class="list-area">
         	<% for(Board b : list) { %>
-	            <div class="thumbnail" align="center" onclick="clickThumbnail('<%=b.getBoardNo()%>')">
+	            <div class="thumbnail" align="center" onclick = "clickBoard('<%=b.getBoardNo()%>')">
 	                <img src="<%=contextPath %>/<%=b.getTitleImg() %>" width="200px" height="150px" alt="썸네일이미지">
 	                <p>
 	                    <span>No. <%=b.getBoardNo() %> <%=b.getBoardTitle() %></span><br>
@@ -72,7 +73,7 @@
     </div>
     <!-- jsp/detail.th -->
     <script>
-    	function clickThumbnail(bno){
+    	function clickBoard(bno){
     		location.href = "<%=contextPath%>/detail.th?bno=" + bno;
     	}
     </script>

@@ -95,9 +95,9 @@
 				},
 				success : function(result){
 					let memberList = JSON.parse(result);
-					const memberZone = document.getElementById("member-area");
+					const memberZone = document.getElementById('member-area');
 					for(let m of memberList){
-						memberZone.innerHTML += ("<li>" + m.userNo + " " + m.userName + " " + m.phone + "</li>")
+						memberZone.innerHTML += ("<li>" + m.userNo + " " + m.userName + " " + m.phone+ "</li>") 
 					}
 				},
 				error : function(){
@@ -108,3 +108,8 @@
 	</script>
 </body>
 </html>
+
+
+
+
+

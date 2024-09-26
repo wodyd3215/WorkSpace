@@ -31,10 +31,9 @@ public class ThumbnailDetailController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int boardNo = Integer.parseInt(request.getParameter("bno"));
-		
-		//조회수 1증가시키고 디테일 페이지정보 가져오기
+		System.out.println(boardNo);
 		Board b = new BoardService().increaseCount(boardNo);
-		
+		System.out.println(b);
 		if(b != null) {
 			ArrayList<Attachment> list = new BoardService().selectAttachmentList(boardNo);
 			request.setAttribute("b", b);
@@ -42,7 +41,7 @@ public class ThumbnailDetailController extends HttpServlet {
 			
 			request.getRequestDispatcher("views/board/thumbnailDetailView.jsp").forward(request, response);
 		} else {
-			request.setAttribute("errorMsg", "게시글 조회 실패");
+			request.setAttribute("errorMsg", "사진 게시글 조회 실패");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 	}

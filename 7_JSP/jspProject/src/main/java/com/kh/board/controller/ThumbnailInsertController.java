@@ -47,7 +47,7 @@ public class ThumbnailInsertController extends HttpServlet {
 			int requestMaxSize = 1024 * 1024 * 20; // 20mb
 			
 			//2. 전달된 파일을 저장시킬 폴더경로가져오기
-			String savePath = request.getServletContext().getRealPath("/resource/thumbnail_upfile/");
+			String savePath = request.getServletContext().getRealPath("/resources/thumbnail_upfile/");
 			
 			//3.DiskFileItemFactory(파일을 임시로 저장) 객체 생성
 			DiskFileItemFactory factory = DiskFileItemFactory.builder().get();
@@ -95,7 +95,7 @@ public class ThumbnailInsertController extends HttpServlet {
 						Attachment at = new Attachment();
 						at.setOriginName(originName);
 						at.setChangeName(changeName);
-						at.setFilePath("resource/thumbnail_upfile/");
+						at.setFilePath("resources/thumbnail_upfile/");
 						
 						int fileLevel = item.getFieldName().equals("file1") ? 1 : 2;
 						at.setFileLevel(fileLevel);

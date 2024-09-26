@@ -18,7 +18,7 @@ public class Member {
 	public Member() {
 		super();
 	}
-	
+
 	public Member(int userNo, String userName, String phone) {
 		super();
 		this.userNo = userNo;

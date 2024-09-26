@@ -31,10 +31,12 @@ public class BoardDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int boardNo = Integer.parseInt(request.getParameter("bno"));
 		
-		Board b = new BoardService().increaseCount(boardNo);
+		BoardService bService = new BoardService();
+		//조회수 1증가시키고 디테일 페이지정보 가져오기
+		Board b = bService.increaseCount(boardNo);
 		
 		if(b != null) {
-			Attachment at = new BoardService().selectAttachment(boardNo);
+			Attachment at = bService.selectAttachment(boardNo);
 			
 			request.setAttribute("board", b);
 			request.setAttribute("attachment", at);
