@@ -24,6 +24,11 @@
       <transactionManager type="JDBC"/>
       <!-- 
       		dataSource : POOLED와 UNPOOLED 둘 중 하나의 타입을 선택할 수 있음(ConnectionPool 사용여부)
+      		* ConnectionPool : db서버에 연결하기 위해 사용한 Connection 객체를 반납하지 않고 
+      		   				   ConnectionPool 공간에 보관하여 요청이 왔을 때 Pool에서 보관해 두었던
+      		   				   Connection 객체를 재사용할 수 있도록 만든 구조
+      		   				   즉, Pool안에 보관된 Connection객체들이 모두 사용되기 전에는 
+      		   				   새로운 Connection 객체를 생성할 필요가 없어진다.
        -->
       <dataSource type="POOLED">
         <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>

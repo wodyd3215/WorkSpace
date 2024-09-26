@@ -18,6 +18,8 @@ public class MemberServiceImpl implements MemberService{
 //		close(conn);
 //		return loginMember;
 		
+		// SqlSession : db서버와 연결, db서버에서 sql문 실행한 값을 가져옴, 가져온 데이터들을 특정 객체의 필드데이터들과 매핑 후 시켜줌
+		
 		SqlSession sqlSession = Template.getSqlSession();
 		
 		Member loginUser = mDao.loginMember(sqlSession, m);
