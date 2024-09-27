@@ -4,10 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+<meta charset="UTF-8">
 	<title>Insert title here</title>
 
-	<!-- jQuery -->
+ 	<!-- jQuery -->
     <script 
         src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -20,7 +20,8 @@
     <!-- 부트스트램 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
+ 
+ 
 	<style>
 	    .login-area a{
 	        text-decoration: none;
@@ -73,22 +74,21 @@
 			            </tr>
 			            <tr>
 			                <td colspan="3" align="center">
-			                    <a href="">회원가입</a>
+			                    <a href="enrollForm.me">회원가입</a>
 			                    <a href="">아이디/비번찾기</a>
 			                </td> 
 			            </tr>
 		            </table>
 		        </form>
-	        </c:when>
-	     
-	       <c:otherwise>
+	     	</c:when>
+	       	<c:otherwise>
 		        <!-- 로그인후 -->
 		        <div>
 		            <table>
 		                <tr>
 		                    <td colspan="2">
-		                    </td>
 		                        <h3>${loginUser.userName}님 환영합니다. </h3>
+		                    </td>
 		                    <td></td>
 		                </tr>
 		                <tr>
@@ -97,15 +97,15 @@
 		                </tr>
 		            </table>
 		        </div>
-			</c:otherwise>
-		</c:choose>
+	        </c:otherwise>
+        </c:choose>
     </div>
     <br>
 
     <div class="nav-area" align="center">
         <div class="menu">HOME</div>
         <div class="menu">공지사항</div>
-        <div class="menu">게시판</div>
+        <div class="menu"><a onclick="location.href='list.bo?cpage=1'">게시판</a></div>
         <div class="menu">ETC</div>
     </div>
 </body>

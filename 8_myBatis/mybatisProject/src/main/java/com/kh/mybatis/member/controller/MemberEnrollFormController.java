@@ -1,26 +1,22 @@
-+ackage com.kh.board.controller;
-
-import java.io.IOException;
-import java.util.ArrayList;
-
-import com.kh.board.model.vo.Board;
-import com.kh.board.service.BoardService;
+package com.kh.mybatis.member.controller;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
- * Servlet implementation class ThumbnailListController
+ * Servlet implementation class MemberEnrollFormController
  */
-public class ThumbnailListController extends HttpServlet {
+public class MemberEnrollFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ThumbnailListController() {
+    public MemberEnrollFormController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,11 +25,7 @@ public class ThumbnailListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Board> list = new BoardService().selectThumbnailList();
-		
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("views/board/thumbnailListView.jsp").forward(request, response);
-	
+		request.getRequestDispatcher("views/member/memberEnrollForm.jsp").forward(request, response);
 	}
 
 	/**
