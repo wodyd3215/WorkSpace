@@ -35,5 +35,17 @@ public class MemberServiceImpl implements MemberService{
 		
 		return memberDao.insertMember(sqlSession, m);
 	}
+
+	@Override
+	public int updateMember(Member m) {
+		
+		return memberDao.updateMember(sqlSession, m);
+	}
+
+	@Override
+	public int deleteMember(String userId) {
+		
+		return memberDao.deleteMember(sqlSession, userId);
+	}
 	
 }

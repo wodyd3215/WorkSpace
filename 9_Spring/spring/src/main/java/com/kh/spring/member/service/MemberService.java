@@ -12,4 +12,10 @@ public interface MemberService {
 	
 	// 회원가입
 	int insertMember(Member m);
+	
+	// 회원정보 수정
+	int updateMember(Member m);
+	
+	// 회원탈퇴
+	int deleteMember(String userId);
 }
