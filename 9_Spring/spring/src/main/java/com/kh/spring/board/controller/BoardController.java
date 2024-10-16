@@ -137,6 +137,19 @@ public class BoardController {
 		return new Gson().toJson(list);
 	}
 	
+	@ResponseBody
+	@RequestMapping("rinsert.bo")
+	public String ajaxInsertReply(Reply r) {
+		//성공했을 때 success, 실패했을 때 fail
+		return boardService.insertReply(r) > 0 ? "success" : "fail";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="topList.bo", produces="application/json; charset-UTF-8")
+	public String ajaxTopBoardList() {
+		return new Gson().toJson(boardService.selectTopBoardList());
+	}
+	
 	@RequestMapping("searchList.bo")
 	public String selectSearchList(@RequestParam(value="capge", defaultValue="1") int currentPage, String condition, String keyword, Model model) {
 		HashMap<String, String> map = new HashMap<>();

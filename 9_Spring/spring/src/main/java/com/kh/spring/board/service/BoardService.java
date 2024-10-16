@@ -32,6 +32,9 @@ public interface BoardService {
 	//댓글 추가
 	int insertReply(Reply r);
 	
+	//조회수 상위 5개
+	public ArrayList<Board> selectTopBoardList();
+	
 	//검색 게시글 총 개수 가져오기
 	int selectSearchListCount(HashMap<String, String> map);
 	

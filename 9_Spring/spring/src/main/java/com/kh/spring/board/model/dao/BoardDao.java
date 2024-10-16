@@ -49,6 +49,10 @@ public class BoardDao {
 		return sqlSession.insert("boardMapper.insertReply", r);
 	}
 	
+	public ArrayList<Board> selectTopBoardList(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("boardMapper.selectTopBoardList");
+	}
+	
 	public int selectSearchListCount(SqlSessionTemplate sqlSession, HashMap<String, String> map) {
 		return sqlSession.selectOne("boardMapper.selectSearchListCount", map);
 	}

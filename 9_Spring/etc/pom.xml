@@ -3,15 +3,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.kh</groupId>
-	<artifactId>spring</artifactId>
-	<name>springProject</name>
+	<artifactId>etc</artifactId>
+	<name>springEtc</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	
 	<!-- pom.xml
 		project[프로젝트 정보 + properties + [repositories] + dependencies + build]
 	 -->
-	
+	 
 	<properties>
 		<java-version>1.8</java-version>
 		<org.springframework-version>5.3.22</org.springframework-version>
@@ -38,14 +38,9 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+
+
 				
-		<!-- AspectJ -->
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
-			<version>${org.aspectj-version}</version>
-		</dependency>	
-		
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -221,6 +216,13 @@
 		    <version>${org.springframework-version}</version>
 		</dependency>
 
+		<!-- AspectJ -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>	
+
 		<!-- aspectjweaver : joinPOint를 추가하기 위한 라이브러리 -->
 		<dependency>
 		    <groupId>org.aspectj</groupId>
@@ -229,6 +231,7 @@
 		</dependency>
 
 	</dependencies>
+
 	
 	
     <build>

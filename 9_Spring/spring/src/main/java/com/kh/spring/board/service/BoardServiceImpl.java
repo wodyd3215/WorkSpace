@@ -68,6 +68,11 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
+	public ArrayList<Board> selectTopBoardList() {
+		return boardDao.selectTopBoardList(sqlSession);
+	}
+	
+	@Override
 	public int selectSearchListCount(HashMap<String, String> map) {
 		return boardDao.selectSearchListCount(sqlSession, map);
 	}
