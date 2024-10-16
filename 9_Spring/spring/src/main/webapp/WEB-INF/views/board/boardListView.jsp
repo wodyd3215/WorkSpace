@@ -61,7 +61,7 @@
 	           			<td>${b.count }</td>
 	           			<td>${b.createDate }</td>
 	           			<td>
-	           				<c:if test="${not empty b.originName }">
+	           				<c:if test="${not empty b.originName}">
 	           					★
 	           				</c:if>
 	           			</td>
@@ -100,7 +100,7 @@
             </ul>
         </div>
 
-        <br clear="both"><br>
+        `<br clear="both"><br>
 
         <form id="searchForm" action="searchList.bo" method="get" align="center">
             <div class="select">
@@ -108,10 +108,12 @@
                     <option value="writer">작성자</option>
                     <option value="title">제목</option>
                     <option value="content">내용</option>
-                </select>
+                </select>`
+                
+                
             </div>
             <div class="text">
-                <input type="text" class="form-control" name="keyword">
+                <input type="text" class="form-control" name="keyword" value="${keyword}">
             </div>
             <button type="submit" class="searchBtn btn btn-secondary">검색</button>
         </form>
@@ -120,6 +122,14 @@
     <br><br>
 
 </div>
+        <c:if test="${not empty condition}">
+	        <script>
+	        	window.onload = function(){
+	        		const opt = document.querySelector(".custom-select option[value=${condition}]");
+	        		opt.setAttribute("selected", true);
+	        	}
+	        </script>
+        </c:if>
 
 <jsp:include page="../common/footer.jsp" />
 

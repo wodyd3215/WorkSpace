@@ -1,6 +1,7 @@
 package com.kh.spring.board.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.kh.spring.board.model.vo.Board;
 import com.kh.spring.board.model.vo.Reply;
@@ -30,4 +31,10 @@ public interface BoardService {
 	
 	//댓글 추가
 	int insertReply(Reply r);
+	
+	//검색 게시글 총 개수 가져오기
+	int selectSearchListCount(HashMap<String, String> map);
+	
+	// 검색 게시글 목록 가져오기
+	ArrayList<Board> selectSearchList(HashMap<String, String> map, PageInfo pi);
 }

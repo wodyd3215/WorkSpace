@@ -2,6 +2,7 @@ package com.kh.spring.board.controller;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.Gson;
 import com.kh.spring.board.model.vo.Board;
+import com.kh.spring.board.model.vo.Reply;
 import com.kh.spring.board.service.BoardService;
 import com.kh.spring.common.template.Template;
 import com.kh.spring.common.vo.PageInfo;
@@ -133,6 +135,26 @@ public class BoardController {
 		ArrayList<Reply> list = boardService.selectReply(bno);
 		
 		return new Gson().toJson(list);
+	}
+	
+	@RequestMapping("searchList.bo")
+	public String selectSearchList(@RequestParam(value="capge", defaultValue="1") int currentPage, String condition, String keyword, Model model) {
+		HashMap<String, String> map = new HashMap<>();
+		map.put("condition", condition);
+		map.put("keyword", keyword);
+		
+		int listCount = boardService.selectSearchListCount(map);
+		
+		PageInfo pi = Template.getPageInfo(listCount, currentPage, 10, 5);
+		
+		ArrayList<Board> list = boardService.selectSearchList(map, pi);
+		
+		model.addAttribute("pi", pi);
+		model.addAttribute("list", list);
+		model.addAttribute("condition", condition);
+		model.addAttribute("keyword", keyword);
+		
+		return "board/boardListView";
 	}
 }
 

@@ -113,6 +113,46 @@
   			#{refBno}
   		)
   </insert>
+  
+  <!-- 검색 게시글 총 개수 -->
+  <select id="selectSearchListCount" resultType="_int">
+  		SELECT COUNT(*) AS "COUNT"
+  		  FROM BOARD
+  		 WHERE STATUS = 'Y'
+  		 <if test="condition == 'writer'">
+  		 	AND BOARD_WRITER
+  		 </if>
+  		 <if test="condition == 'title'">
+  		 	AND BOARD_TITLE
+  		 </if>
+  		 <if test="condition == 'content'">
+  		 	AND BOARD_CONTENT
+  		 </if>
+  		 	LIKE '%' || #{keyword} || '%'
+  </select>
+  
+  <!-- 검색 게시글 조회 -->
+  <select id="selectSearchList" resultType="Board">
+  		SELECT BOARD_NO boardNo,
+			   BOARD_TITLE boardTitle,
+			   BOARD_WRITER boardWriter,
+			   ORIGIN_NAME originName,
+			   COUNT count,
+			   TO_CHAR(CREATE_DATE, 'YYYY-MM-DD') AS "createDate"
+  	      FROM BOARD
+  	     WHERE STATUS = 'Y'
+  	     <if test="condition == 'writer'">
+  		 	AND BOARD_WRITER
+  		 </if>
+  		 <if test="condition == 'title'">
+  		 	AND BOARD_TITLE
+  		 </if>
+  		 <if test="condition == 'content'">
+  		 	AND BOARD_CONTENT
+  		 </if>
+  		 	LIKE '%' || #{keyword} || '%'
+  		 ORDER BY BOARD_NO DESC
+  </select>
 </mapper>
 
 
