@@ -51,8 +51,9 @@ public class MemberUpdateController extends HttpServlet {
 		
 		if(updateMem == null) { // 실패
 			//에러문구담아서 에러페이지 포워딩
-			request.setAttribute("errorMsg", "회원정보 수정에 실패하였습니다.");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+			request.setAttribute("alertMsg", "회원정보 수정에 실패하였습니다.");
+//			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+			response.sendRedirect(request.getContextPath() + "/myPage.me");
 		} else { // 성공
 			//loginUser데이터 최신화 -> myPage.me 재요청
 			HttpSession session = request.getSession();

@@ -108,9 +108,7 @@
                     <option value="writer">작성자</option>
                     <option value="title">제목</option>
                     <option value="content">내용</option>
-                </select>`
-                
-                
+                </select>
             </div>
             <div class="text">
                 <input type="text" class="form-control" name="keyword" value="${keyword}">
@@ -122,14 +120,7 @@
     <br><br>
 
 </div>
-        <c:if test="${not empty condition}">
-	        <script>
-	        	window.onload = function(){
-	        		const opt = document.querySelector(".custom-select option[value=${condition}]");
-	        		opt.setAttribute("selected", true);
-	        	}
-	        </script>
-        </c:if>
+
 
 <jsp:include page="../common/footer.jsp" />
 

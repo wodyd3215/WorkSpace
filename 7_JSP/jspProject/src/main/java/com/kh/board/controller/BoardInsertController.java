@@ -112,6 +112,7 @@ public class BoardInsertController extends HttpServlet {
 			if(result > 0) { //성공 -> 게시글 목록(jsp/list.bo?cage=1)
 				request.getSession().setAttribute("alertMsg", "일반게시글 작성 성공");
 				response.sendRedirect(request.getContextPath() + "/list.bo?cpage=1");
+//				request.getRequestDispatcher("views/board/boardListView.jsp").forward(request, response);
 			} else { //실패 -> 업로드된 파일 삭제해주고 에러페이지
 				 if(at != null) {
 					 new File(savePath + at.getChangeName()).delete();
