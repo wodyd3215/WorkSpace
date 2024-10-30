@@ -79,5 +79,10 @@ public class BoardServiceImpl implements BoardService{
 		return list;
 	}
 	
-	
+	public int selecsalidfjlw() {
+		int a = 1;
+		int b = 2;
+		
+		return a+b;
+	}
 }
