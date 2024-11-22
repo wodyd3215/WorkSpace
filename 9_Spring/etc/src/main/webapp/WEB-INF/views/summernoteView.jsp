@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	제목 : ${b.title} <br>
-	내용 : 
-	${b.content}
+	제목 : ${b.title } <br>
+	내용 : ${b.content}
 </body>
 </html>

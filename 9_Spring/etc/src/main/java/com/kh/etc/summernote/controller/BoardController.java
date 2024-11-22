@@ -30,10 +30,10 @@ public class BoardController {
 		return "summernoteView";
 	}
 	
-	// ajax로 파일 업로드
-	// 파일 목록을 저장하고 저장된 파일명목록 반환
-	@PostMapping("upload")
+	//ajax로 파일 업로드
+	//파일목록을 저장하고 저장된 파일명목록 반환
 	@ResponseBody
+	@PostMapping("upload")
 	public String upload(List<MultipartFile> fileList, HttpSession session) {
 		System.out.println(fileList);
 		
@@ -45,7 +45,7 @@ public class BoardController {
 		return new Gson().toJson(changeNameList);
 	}
 	
-	public static String saveFile(MultipartFile upfile, HttpSession session, String path) {
+	public String saveFile(MultipartFile upfile, HttpSession session, String path) {
 		//파일원본명
 		String originName = upfile.getOriginalFilename(); 
 		

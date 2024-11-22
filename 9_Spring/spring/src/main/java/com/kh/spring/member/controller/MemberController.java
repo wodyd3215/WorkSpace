@@ -151,7 +151,7 @@ public class MemberController {
 //		
 //		//return "main";
 //		// /WEB-INF/views/main.jsp
-//	}
+//	}	
 	
 	// 2. 스프링에서 제공하는 ModelAndView객체를 이용하면 데이터를 담고 리턴형식까지 지정할 수 있음
 	@RequestMapping("login.me")
